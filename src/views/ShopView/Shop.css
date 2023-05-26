@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,700;1,500;1,600&display=swap');
+*{
+    padding: 5;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    min-Height: '100vh';
+}
+.card{
+    width: 240px;
+    padding: 10px;
+    margin: 5px 18px; 
+    object-fit: scale-down;
+}
+.shop{
+    background-color:#191919;
+    min-height:100vh;
+}
+.title{
+    color: white;
+    font-size: 40px;
+    padding: 10px;
+}
+.discount{
+    text-decoration: line-through;
+    color:red;
+}
+.select{
+    width: 190px;
+    margin:  0px 10px;
+}

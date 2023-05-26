@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,700;1,500;1,600&display=swap');
+.navbar{
+    height: 100%;
+    width: 200;
+    padding: 15px;
+    z-index: 1;
+    
+    overflow-x: hidden;
+    padding-top: 60px;
+
+}
+.header{
+    height:100px;
+    width:900;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #2E6FE6;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+body{
+    margin: 0;
+    display: block;
+}
+.content{
+    text-align: center;
+}
+.basketLogo{
+    display: flex;
+    align-items: end;
+    margin-left: auto; 
+    margin-right: 0;
+}
+.social{
+    margin: 0;
+    text-align: center;
+    background-color: #2A2332;
+    display:"flex";
+    flex-direction:"row";
+}
