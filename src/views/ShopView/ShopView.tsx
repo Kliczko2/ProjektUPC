@@ -10,9 +10,7 @@ const ShopView: React.FC = () => {
   return (
     <div className="shop">
       <h2 className="title">Shop</h2>
-      <div style={{ margin: 40 }}>
-        <ProductFilter setFilters={setFilters} />
-      </div>
+      <div style={{ margin: 40 }}></div>
       <div style={{ margin: 35 }}>
         <Row>
           <ProductList sortPrice={filters} />

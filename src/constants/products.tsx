@@ -13,10 +13,11 @@ export const products = [
     isNew: true,
     categoryId: 1,
     category: 'meski',
+    quantity: 0,
   },
   {
-    title: 'Trousers',
-    description: 'Trousers were made in China',
+    title: 'Trouser',
+    description: 'Trouser was made in China',
     productKey: 'trousers2',
     price: 32.99,
     image:
@@ -24,10 +25,11 @@ export const products = [
     secondImage:
       'https://cdn.webshopapp.com/shops/285429/files/418244193/750x2000x3/valenci-grijze-chino-heren.jpg',
     id: 2,
-    discount: 0.1,
+    discount: 0,
     isNew: true,
     categoryId: 1,
     category: 'meski',
+    quantity: 0,
   },
   {
     title: 'Dress',
@@ -44,5 +46,6 @@ export const products = [
     isNew: false,
     categoryId: 2,
     category: 'damskie',
+    quantity: 0,
   },
 ]
