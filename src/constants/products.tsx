@@ -13,10 +13,9 @@ export const products = [
     isNew: true,
     categoryId: 1,
     category: 'meski',
-    quantity: 0,
   },
   {
-    title: 'Troousers',
+    title: 'Trousers',
     description: 'Trousers were made in China',
     productKey: 'trousers2',
     price: 32.99,
@@ -29,10 +28,9 @@ export const products = [
     isNew: true,
     categoryId: 1,
     category: 'meski',
-    quantity: 0,
   },
   {
-    title: 'Sukienka',
+    title: 'Dress',
     description:
       'Sukienka o kroju tuniki z tkaniny z domieszką lnu. Dekolt w serek',
     productKey: 'majtek3',
@@ -46,6 +44,5 @@ export const products = [
     isNew: false,
     categoryId: 2,
     category: 'damskie',
-    quantity: 0,
   },
 ]

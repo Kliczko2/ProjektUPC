@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
 import { products } from '../constants/products'
 
 // Define a type for the slice state
@@ -19,16 +18,16 @@ export const counterSlice = createSlice({
   initialState: initialState,
   reducers: {
     incrementByAmount: (state, action: PayloadAction<any>) => {
-      console.log(action.payload)
       const itemInCart = products.find((item) => item.id === action.payload)
       state.cart.push(itemInCart)
+    },
+    removeItem: (state, action: PayloadAction<any>) => {
+      const removeItem = state.cart.find((item) => item.id === action.payload)
+      state.cart.splice(removeItem, 1)
     },
   },
 })
 
-export const { incrementByAmount } = counterSlice.actions
-
-// Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.shopBasket.cart
+export const { incrementByAmount, removeItem } = counterSlice.actions
 
 export default counterSlice.reducer

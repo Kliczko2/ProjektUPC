@@ -4,14 +4,12 @@ import { products } from '../../../constants/products'
 import { useParams } from 'react-router'
 import { Button, message } from 'antd'
 import ProductPrice from '../components/ProductPrice'
-import { useAppSelector, useAppDispatch } from '../../../hooks/hooks'
+import { useAppDispatch } from '../../../hooks/hooks'
 import { incrementByAmount } from '../../../reducers/shopBasket'
 
 const ProductView = () => {
   const { productName } = useParams()
-  const count = useAppSelector((state) => state.shopBasket.cart)
   const dispatch = useAppDispatch()
-  console.log(count)
 
   return (
     <>
