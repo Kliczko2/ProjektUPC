@@ -16,10 +16,10 @@ const ShopBasket: React.FC = () => {
     return Math.round(total * 100) / 100
   }
 
-  console.log(getTotalPrice())
-
+  console.log(selector)
   const groupByTitle = () => {
     const uniqueChars: any = []
+
     selector.forEach((element) => {
       if (!uniqueChars.find((item: any) => item.title === element.title)) {
         uniqueChars.push({
@@ -32,13 +32,18 @@ const ShopBasket: React.FC = () => {
         const x = uniqueChars.findIndex(
           (item: any) => item.title === element.title
         )
+
         uniqueChars[x].price += element.price
         uniqueChars[x].quantity += 1
       }
     })
+    // const maxQuantity = Math.max(table) + 1
+    // const difference = quantity - maxQuantity
+
     return uniqueChars
   }
 
+  console.log('Siema', groupByTitle())
   const [shopBasketOpen, setShopBasketOpen] = useState<boolean>(false)
   return (
     <>
@@ -63,11 +68,13 @@ const ShopBasket: React.FC = () => {
               <p>
                 <Avatar src={item.image} />
                 <span style={{ margin: 10 }}>{item.title}</span>
-                <InputNumber></InputNumber>
-                <span style={{ margin: 10 }}>{item.price}</span>
+                <InputNumber max={20} min={1}></InputNumber>
+                <span style={{ margin: 10 }}>
+                  {Math.round(item.price * 100) / 100}
+                </span>
                 <button
                   style={{ margin: 10 }}
-                  onClick={() => dispatch(removeItem(idx))}
+                  onClick={() => dispatch(removeItem(item.title))}
                 >
                   Usuń
                 </button>
