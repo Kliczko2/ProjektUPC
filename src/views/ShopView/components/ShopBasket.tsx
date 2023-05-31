@@ -3,7 +3,27 @@ import './../Shop.css'
 import React, { useState } from 'react'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { useAppSelector, useAppDispatch } from '../../../hooks/hooks'
-import { removeItem } from '../../../reducers/shopBasket'
+import { removeItem, incrementByInput } from '../../../reducers/shopBasket'
+
+interface IShopBasketProps {
+  title: string
+  image: string
+  price: number
+  quantity: number
+}
+interface IProductsBasketProps {
+  isNew: boolean
+  price: number
+  title: string
+  discount: number
+  image: string
+  secondImage: string
+  category: string
+  categoryId: number
+  productKey: string
+  id: number
+  quantity: number
+}
 
 const ShopBasket: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -16,12 +36,20 @@ const ShopBasket: React.FC = () => {
     return Math.round(total * 100) / 100
   }
 
+  const handleChange = (value: any, id: string) => {
+    dispatch(incrementByInput({ value: value, title: id }))
+  }
+
   console.log(selector)
   const groupByTitle = () => {
     const uniqueChars: any = []
 
     selector.forEach((element) => {
-      if (!uniqueChars.find((item: any) => item.title === element.title)) {
+      if (
+        !uniqueChars.find(
+          (item: IShopBasketProps) => item.title === element.title
+        )
+      ) {
         uniqueChars.push({
           title: element.title,
           image: element.image,
@@ -30,7 +58,7 @@ const ShopBasket: React.FC = () => {
         })
       } else {
         const x = uniqueChars.findIndex(
-          (item: any) => item.title === element.title
+          (item: IShopBasketProps) => item.title === element.title
         )
 
         uniqueChars[x].price += element.price
@@ -63,12 +91,20 @@ const ShopBasket: React.FC = () => {
             setShopBasketOpen(false)
           }}
         >
-          {groupByTitle().map((item: any, idx: any) => (
+          {groupByTitle().map((item: IProductsBasketProps, idx: number) => (
             <div key={idx}>
               <p>
                 <Avatar src={item.image} />
                 <span style={{ margin: 10 }}>{item.title}</span>
-                <InputNumber max={20} min={1}></InputNumber>
+                <InputNumber
+                  keyboard={false}
+                  onChange={(value) => handleChange(value, item.title)}
+                  min={1}
+                  max={20}
+                  onKeyDown={(e) =>
+                    e.keyCode != 38 && e.keyCode != 40 && e.preventDefault()
+                  }
+                ></InputNumber>
                 <span style={{ margin: 10 }}>
                   {Math.round(item.price * 100) / 100}
                 </span>

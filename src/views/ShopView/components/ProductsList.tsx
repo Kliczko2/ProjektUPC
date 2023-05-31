@@ -16,52 +16,14 @@ interface IProductsListProps {
   productKey: string
   id: number
 }
-interface IFiltersProps {
-  sortPrice: string
-}
 
-const ProductsList: React.FC<IFiltersProps> = ({ sortPrice }) => {
+const ProductsList: React.FC = () => {
   const navigate = useNavigate()
   const { categoryName } = useParams()
 
   const filteredByCategory = products.filter((product) => {
     return categoryName == product.category
   })
-
-  filteredByCategory.sort(
-    (product1: IProductsListProps, product2: IProductsListProps) => {
-      if (sortPrice == 'low') {
-        if (product1.price > product2.price) {
-          return 1
-        }
-        if (product1.price < product2.price) {
-          return -1
-        }
-      } else if (sortPrice == 'high') {
-        if (product1.price > product2.price) {
-          return -1
-        }
-        if (product1.price < product2.price) {
-          return 1
-        }
-      } else if (sortPrice == 'az') {
-        if (product1.title.toLowerCase() > product2.title.toLowerCase()) {
-          return 1
-        }
-        if (product1.title.toLowerCase() < product2.title.toLowerCase()) {
-          return -1
-        }
-      } else if (sortPrice == 'za') {
-        if (product1.title.toLowerCase() > product2.title.toLowerCase()) {
-          return -1
-        }
-        if (product1.title.toLowerCase() < product2.title.toLowerCase()) {
-          return 1
-        }
-      }
-      return 0
-    }
-  )
 
   return (
     <>

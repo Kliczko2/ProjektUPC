@@ -8,7 +8,7 @@ interface IProductPriceProps {
 const ProductPrice: React.FC<IProductPriceProps> = ({ price, discount }) => {
   return (
     <p>
-      {`Price: ${price}`}
+      {`Price: $${price}`}
       <span className="discount">
         {' '}
         {discount > 0
